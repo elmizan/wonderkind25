@@ -1,63 +1,30 @@
 ---
-const menuItems = [
-  { text: 'Home', url: '/' },
-  { text: 'About', url: '/about' },
-  { text: 'Services', url: '/services' },
-  { text: 'Contact', url: '/contact' },
+import Logo from '../components/Logo.astro';
+
+const navItems = [
+    { linkText: 'Home', href: '/' },
+    { linkText: 'Revalidation', href: '/revalidation' },
+    { linkText: 'Image CDN', href: '/image-cdn' },
+    { linkText: 'Edge Function', href: '/edge' },
+    { linkText: 'Blobs', href: '/blobs' }
 ];
 ---
 
-<header id="masthead" class="site-header">
-  <div class="ast-main-header-wrap">
-    <div class="site-header-primary-section-left">
-      <div class="site-branding">
-        <h1 class="site-title">
-          <a href="/" rel="home">Muda Visi Mandiri</a>
-        </h1>
-      </div>
-    </div>
-
-    <nav class="main-navigation">
-      <ul class="main-header-menu">
-        {menuItems.map(item => (
-          <li class="menu-item">
-            <a href={item.url}>{item.text}</a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<style>
-  .site-header {
-    background: #fff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  }
-
-  .ast-main-header-wrap {
-    max-width: var(--ast-container-default-width);
-    margin: 0 auto;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .main-header-menu {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .menu-item a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .menu-item a:hover {
-    color: var(--ast-global-color-0);
-  }
-</style>
+<nav class="flex flex-wrap items-center gap-4 pt-6 pb-16 sm:pt-12 sm:pb-24">
+    <a href="/">
+        <Logo />
+    </a>
+    {
+        !!navItems?.length && (
+            <ul class="flex flex-wrap gap-x-4 gap-y-1">
+                {navItems.map((item) => (
+                    <li>
+                        <a href={item.href} class="inline-block px-1.5 py-1 sm:px-3 sm:py-2">
+                            {item.linkText}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        )
+    }
+</nav>

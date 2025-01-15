@@ -1,74 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import ContextAlert from '../components/ContextAlert.astro';
+import Markdown from '../components/Markdown.astro';
 
-const siteTitle = "Muda Visi Mandiri";
-const siteDescription = "Website resmi Muda Visi Mandiri";
+const explainer = `
+An Astro website can go way beyond static pages - on the right platform.
+
+Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
+Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
+`;
 ---
 
-<Layout title={siteTitle}>
-  <Header />
-  
-  <main id="primary" class="site-main">
-    <article class="post type-post status-publish format-standard hentry ast-article-single">
-      <div class="entry-content clear" itemprop="text">
-        <!-- Hero Section -->
-        <div class="elementor-section elementor-top-section">
-          <div class="elementor-container">
-            <div class="elementor-column">
-              <div class="elementor-widget-wrap">
-                <h1>Selamat Datang di {siteTitle}</h1>
-                <p class="elementor-heading-title">
-                  {siteDescription}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Content Sections -->
-        <div class="elementor-section elementor-top-section">
-          <div class="elementor-container">
-            <!-- Add your main content sections here -->
-          </div>
-        </div>
-      </div>
-    </article>
-  </main>
-
-  <Footer />
+<Layout title="Welcome to Astro.">
+    <ContextAlert class="mb-4" />
+    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
+    <Markdown content={explainer} class="text-lg mb-10" />
+    <p class="mb-8">
+        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg btn-primary sm:btn-wide">Read the Docs</a>
+    </p>
 </Layout>
-
-<style>
-  .site-main {
-    margin: 0 auto;
-    padding: 1rem;
-    max-width: var(--ast-container-default-width);
-  }
-
-  .elementor-section {
-    position: relative;
-    padding: 90px 20px;
-  }
-
-  .elementor-container {
-    max-width: 1140px;
-    margin: 0 auto;
-  }
-
-  .elementor-column {
-    width: 100%;
-  }
-
-  .elementor-widget-wrap {
-    padding: 10px;
-  }
-
-  h1 {
-    font-size: 2.25rem;
-    font-weight: 600;
-    line-height: 1.4em;
-    margin-bottom: 1rem;
-  }
-</style>
